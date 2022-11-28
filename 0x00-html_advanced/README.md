@@ -29,4 +29,4 @@ At the end of this project, you are expected to be able to explain to anyone, wi
 <br>
 # Sitemap of the project
 
-![Sitemap of the project]()
+![Sitemap of the project](https://github.com/Robert-octavo/holbertonschool-web_front_end/blob/master/0x00-html_advanced/3e4f9e2b3cb73d1768229e086f5da35337be5c6c.png)
