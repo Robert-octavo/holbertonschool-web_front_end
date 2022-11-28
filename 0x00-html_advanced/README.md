@@ -26,7 +26,7 @@ At the end of this project, you are expected to be able to explain to anyone, wi
 - How to embed external content
 - How to correctly structure an HTML page
 
-<br>
+<hr>
 
 # Sitemap of the project
 
