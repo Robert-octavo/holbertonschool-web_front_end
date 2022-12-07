@@ -410,6 +410,7 @@ ul.row {
 .social-link {
     display: block;
 }
-.social-link:nth-child() {
+
+.social-link:nth-child(svg) {
     fill: var(--text-color);
 }
