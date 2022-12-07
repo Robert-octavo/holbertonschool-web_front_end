@@ -411,6 +411,6 @@ ul.row {
     display: block;
 }
 
-.social-link:nth-child(n) {
+.social-link > svg {
     fill: var(--text-color);
 }
