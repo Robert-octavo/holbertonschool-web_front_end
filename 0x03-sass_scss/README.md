@@ -1,6 +1,6 @@
 # 0x03. Sass & Scss
 
-![]()
+![sass](https://github.com/Robert-octavo/holbertonschool-web_front_end/blob/master/0x03-sass_scss/sass.jpg)
 
 Resources
 
