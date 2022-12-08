@@ -1,0 +1,14 @@
+/* Write a Sass file that assigns: Margin mixin */
+
+@mixin margin($mg: 10px) {
+        margin-left: $mg; 
+        margin-right: $mg;
+}
+
+body {
+    @include margin;
+}
+
+div {
+    @include margin($mg: 15px);
+}
