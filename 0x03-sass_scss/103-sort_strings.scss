@@ -1,0 +1,50 @@
+/* Write a Sass file that sorts the variable $list_to_sort and prints the sorted list in the debug output. https: //github.com/KittyGiraudel/SassySort/blob/master/dist/_SassySort.scss */
+
+@import '103-sort_list';
+
+$default-order: "a" "b" "c" "d" "e" "f" "g" "h" "i" "j" "k" "l" "m" "n" "o" "p" "q" "r" "s" "t" "u" "v" "w" "x" "y" "z" !default;
+
+
+@function _str-compare($a, $b, $order) {
+    
+    $a: to-lower-case($a + unquote(""));
+    $b: to-lower-case($b + unquote(""));
+
+    @for $i from 1 through min(str-length($a), str-length($b)) {
+        $char-a: str-slice($a, $i, $i);
+        $char-b: str-slice($b, $i, $i);
+
+        @if $char-a and $char-b and index($order, $char-a) !=index($order, $char-b) {
+            @return index($order, $char-a) < index($order, $char-b);
+        }
+    }
+
+    @return str-length($a) < str-length($b);
+}
+
+@function _swap($list, $a, $b) {
+    @if abs($a)>length($list) or abs($b)>length($list) {
+        @return $list;
+    }
+
+    $tmp: nth($list, $a);
+    $list: set-nth($list, $a, nth($list, $b));
+    $list: set-nth($list, $b, $tmp);
+    @return $list;
+}
+
+@function bubble-sort($list, $order: $default-order) {
+    @for $i from 1 through length($list) {
+        @for $j from $i through 1 {
+            @if $j >1 and _str-compare(nth($list, $j), nth($list, $j - 1), $order) {
+                $list: _swap($list, $j, $j - 1);
+            }
+        }
+    }
+
+    @return $list;
+}
+$list: $list_to_sort;
+$sort: bubble-sort($list, $default-order);
+
+@debug $sort;
