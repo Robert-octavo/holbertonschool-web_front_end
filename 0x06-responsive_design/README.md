@@ -17,4 +17,4 @@ For this project, we expect you to look at this concept:
 
 # Wireframe of the Techium project - mobile version
 
-![Wireframe of the Techium project - mobile version]()
+![Wireframe of the Techium project - mobile version](https://github.com/Robert-octavo/holbertonschool-web_front_end/blob/master/0x06-responsive_design/MovilVersion.png?raw=true)
