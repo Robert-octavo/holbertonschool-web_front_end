@@ -1,6 +1,6 @@
 # 0x0A. Bootstrap
 
-![Bootstrap]()
+![Bootstrap](https://github.com/Robert-octavo/holbertonschool-web_front_end/blob/master/0x0A-Bootstrap/bootstrap.png)
 
 Bootstrap is a free and open-source CSS framework directed at responsive, mobile-first front-end web development. It contains CSS and JavaScript design templates for typography, forms, buttons, navigation, and other interface components.
 
