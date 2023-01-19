@@ -22,7 +22,7 @@ let user = {
     occupation: "Engineer"
 }
 
-function logWelcomeUser(welcomeString){
+let logWelcomeUser = function (welcomeString){
     console.log(`${welcomeString}, ${this.firstName}. Your occupation is: ${this.occupation}`);
 }
 
