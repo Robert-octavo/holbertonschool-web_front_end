@@ -26,5 +26,5 @@ let logWelcomeUser = function (welcomeString){
     console.log(`${welcomeString}, ${this.firstName}. Your occupation is: ${this.occupation}`);
 }
 
-let bindLogWelcomeUser = logWelcomeUser.bind(user);
+const bindLogWelcomeUser = logWelcomeUser.bind(user);
 bindLogWelcomeUser('Welcome');

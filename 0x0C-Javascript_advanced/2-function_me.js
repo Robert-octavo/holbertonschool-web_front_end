@@ -1,5 +1,5 @@
 function welcomeMessage(fullName) {
-    return alert("Welcome " + fullName);
+    return () => {alert("Welcome " + fullName)};
 }
 
 let guillaume = welcomeMessage("Guillaume");
