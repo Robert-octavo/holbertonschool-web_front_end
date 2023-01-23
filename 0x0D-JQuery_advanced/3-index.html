@@ -17,11 +17,11 @@
       /* Create a function named createFamilyTree*/
       function createFamilyTree() {
         $('body').append("<table>");
-          $('table').append($('<tr></tr>')
+          $('table').append($('<thead>').append($('<tr></tr>'))
             .append($('<th></th>').text('Firstname'))
             .append($('<th></th>').text('Lastname'))
           );
-          $('table').append($('<tr></tr>')
+          $('table').append($('<tbody>').append($('<tr></tr>'))
             .append($('<td></td>').text('Guillaume'))
             .append($('<td></td>').text('Salva'))
           );
