@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 7</title>
+</head>
+<body>
+    <script>
+        let availableItems = ['Shampoo', 'Soap', 'Sponge', 'Water']
+
+        /* check if the browser supports local storage */
+        if (window.sessionStorage) {
+            createStore();
+            displayCart();
+        } else {
+            alert('Sorry, your browser does not support Web storage. Try again with a better one');
+        }
+
+        function getCartFromStore() {
+            let cart = window.sessionStorage.getItem('cart');
+            return window.sessionStorage.length > 0 ? JSON.parse(cart) : {};            
+        }
+
+        function addItemToCart(item) {
+            let cart = getCartFromStore();
+
+            cart[item] = true ? cart[item]++ : cart[item] = 1;
+
+            window.sessionStorage.setItem('cart', JSON.stringify(elements));
+            displayCart();
+        }
+
+        function removeItemfromCart(item) {
+            let cart = getCartFromStore();
+
+            if (cart[item]) {
+                cart[item]--;
+                if (cart[item] === 0) {
+                    delete cart[item];
+                }
+            }
+
+            window.sessionStorage.setItem('cart', JSON.stringify(elements));
+            displayCart();
+        }
+
+        function clearCart() {
+            window.sessionStorage.clear();
+            displayCart();
+        }
+
+        function createStore() {
+            let available = document.createElement('h2');
+            available.innerHTML = 'Available Items';
+            document.body.appendChild(available);
+
+            let ul = document.createElement('ul');
+            /*Loop through the array of items, and create a list item to add to the ul*/
+            for (let i = 0; i < availableItems.length; i++) {
+                let li = document.createElement('li');
+                li.innerHTML = availableItems[i];
+                /*Add an event listener to the list item, that will call the function addItemToCart*/
+                li.addEventListener('click', function () {
+                    addItemToCart(availableItems[i]);
+                });
+                ul.appendChild(li);
+            }
+            document.body.appendChild(ul);
+        }
+
+        function displayCart() {
+            /* It should add inside a h2 tag with the text Your cart:*/
+            let c = document.querySelector('div');
+            if (c) {
+                let cartList = document.querySelector('div > ul:last-child');
+                cartList.remove();
+            } else {
+                let cart = document.createElement('h2');
+                let div = document.createElement('div');
+                cart.innerHTML = 'Your cart:';
+                document.body.appendChild(cart, div);
+            }
+            updateCart();      
+        }
+
+        function updateCart() {
+            /*
+                It should add a list to the div tag created previously
+                If the cart is empty, it should add an item Your cart is empty
+                If the cart is not empty, it should add the list of items within the cart with the following format: ITEM_NAME x QUANTITY (remove)
+                When the user clicks on remove, it should call the function removeItemfromCart
+                At the top of the cart, add an item named Clear my cart. When the user clicks on it, it should call the function clearCart
+            */
+            let cart = getCartFromStore();  
+            let div = document.querySelector('div');
+            let ul = document.createElement('ul');
+            let li = document.createElement('li');
+            let clear = document.createElement('li');
+            let cartList = document.querySelector('div > ul:last-child');
+            if (cartList) {
+                cartList.remove();
+            }
+            if (Object.keys(cart).length === 0) {
+                li.innerHTML = 'Your cart is empty';
+                ul.appendChild(li);
+            } else {
+                for (let item in cart) {
+                    li.innerHTML = `${item} x ${cart[item]} (remove)`;
+                    li.addEventListener('click', function () {
+                        removeItemfromCart(item);
+                    });
+                    ul.appendChild(li);
+                }
+                clear.innerHTML = 'Clear my cart';
+                clear.addEventListener('click', function () {
+                    clearCart();
+                });
+                ul.appendChild(clear);
+            }
+            div.appendChild(ul);
+        }
+
+    </script>
+</body>
+</html>
